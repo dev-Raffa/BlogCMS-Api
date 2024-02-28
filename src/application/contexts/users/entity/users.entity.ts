@@ -1,4 +1,4 @@
-import { IUser } from '../../../../domain/user/model/user.model';
+import { IUser } from '../../../../domain/user/model/user-model.domain';
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
