@@ -1,4 +1,4 @@
-import { IPermissions } from '../../interface/permissions-model.domain';
+import { IPermissions } from '../../interface/permissions-model.interface';
 
 export interface IPostsPermissions extends IPermissions {
   publish: boolean;

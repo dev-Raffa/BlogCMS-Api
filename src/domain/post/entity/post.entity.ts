@@ -1,5 +1,5 @@
-import { IComment } from 'src/domain/comment/model/comment-model.domain';
-import { IUser } from 'src/domain/user/model/user-model.domain';
+import { IComment } from '../../comment/entity/comment.entity';
+import { IUser } from '../../user/model/user-model.domain';
 
 export interface IPost {
   author: IUser;
