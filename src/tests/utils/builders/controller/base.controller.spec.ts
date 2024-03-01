@@ -1,8 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { MockBaseController } from '../mocks/controller/controller.mock';
-import { MockBaseService } from '../mocks/service/service.mock';
-import { MockBaseRepository } from '../mocks/repository/base-repository.mock';
-import { IMockBaseEntity } from '../mocks/entity/base-entity.mock';
+import { MockBaseController } from '../../../mocks/controller/controller.mock';
+import { MockBaseService } from '../../../mocks/service/service.mock';
+import { MockBaseRepository } from '../../../mocks/repository/base-repository.mock';
+import { IMockBaseEntity } from '../../../mocks/entity/base-entity.mock';
 
 describe('BaseController', () => {
   let controller: MockBaseController;

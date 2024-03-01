@@ -1,10 +1,10 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { IMockBaseEntity } from '../mocks/entity/base-entity.mock';
-import { MockBaseService } from '../mocks/service/service.mock';
-import { MockBaseRepository } from '../mocks/repository/base-repository.mock';
+import { IMockBaseEntity } from '../../../mocks/entity/base-entity.mock';
+import { MockBaseService } from '../../../mocks/service/service.mock';
+import { MockBaseRepository } from '../../../mocks/repository/base-repository.mock';
 import { IRepository } from 'src/utils/interfaces/repository/repository.inteface';
 import { NotFoundException } from '@nestjs/common';
-import { MockBaseDB } from '../mocks/database/database-base.mock';
+import { MockBaseDB } from '../../../mocks/database/database-base.mock';
 
 describe('BaseService', () => {
   let service: MockBaseService;
