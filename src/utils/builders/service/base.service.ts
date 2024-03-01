@@ -8,10 +8,10 @@ export abstract class BaseService<T extends IBaseEntity>
 {
   constructor(
     @Inject('REPOSITORY')
-    readonly repository: IRepository<T>
+    private readonly repository: IRepository<T>
   ) {}
 
-  protected async verifyId(id: number) {
+  private async verifyId(id: number) {
     return await this.repository.findOneBy({ id: id });
   }
 
