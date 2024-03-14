@@ -33,13 +33,13 @@ describe('BaseService', () => {
     expect(repository).toBeDefined();
   });
 
-  describe('create', () => {
+  describe('add', () => {
     const req: Omit<IMockBaseEntity, 'id'> = {
       name: 'teste',
       age: 24
     };
 
-    it('should return a user when create with succes', async () => {
+    it('should return a user when add with succes', async () => {
       const result = await service.add(req);
 
       expect(result).toEqual<IMockBaseEntity>({
