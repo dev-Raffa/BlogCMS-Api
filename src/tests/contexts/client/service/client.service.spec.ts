@@ -1,17 +1,26 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { ClientEntity } from '../../../../application/contexts/client/entity/client.entity';
 import { IClientService } from '../../../../application/contexts/client/interfaces/service/client-service.interface';
 import { ClientService } from '../../../../application/contexts/client/service/client.service';
-import { DatabaseModule } from '../../../../infra/database/database.module';
-import { registerProviders } from '../../../../utils/helpers/register-providers/register-providers.helper';
+import {
+  ClientRepositoryMock,
+  DatabaseTableClientMock
+} from '../mocks/database/client-repository.mock';
 
 describe('ClientService', () => {
   let service: IClientService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      imports: [DatabaseModule],
-      providers: registerProviders(ClientEntity, ClientService)
+      providers: [
+        {
+          provide: 'SERVICE',
+          useClass: ClientService
+        },
+        {
+          provide: 'REPOSITORY',
+          useValue: ClientRepositoryMock
+        }
+      ]
     }).compile();
 
     service = module.get<IClientService>('SERVICE');
@@ -21,5 +30,15 @@ describe('ClientService', () => {
     expect(service).toBeDefined();
   });
 
-  describe.skip('add', () => {});
+  it('should return a uuid v4 what is not exist in the database', async () => {
+    const stringVerify = '/([A-Z])/';
+    const uuids: string[] = DatabaseTableClientMock.map((item) => {
+      return item.apiKey;
+    });
+    const result = await service.generateKey();
+
+    expect(result).toHaveLength(32);
+    expect(uuids).not.toContain(result);
+    expect(stringVerify.match(result)).toBeNull();
+  });
 });
