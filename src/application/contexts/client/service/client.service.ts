@@ -1,3 +1,5 @@
+import { NotFoundException } from '@nestjs/common';
+
 import { generateRandomString } from '../../../../utils/helpers/generate-random/generate-random.helper';
 import { BaseService } from '../../../../utils/builders/service/base.service';
 import { IClient } from '../interfaces/entity/client-entity.interface';
@@ -7,7 +9,15 @@ export class ClientService
   extends BaseService<IClient>
   implements IClientService
 {
-  getOneByKey: (key: string) => Promise<IClient>;
+  async getOneByKey(key: string): Promise<IClient> {
+    const client = await this.repository.findOneBy({ apiKey: key });
+    if (!client) {
+      throw new NotFoundException();
+    }
+
+    return client;
+  }
+
   async generateKey(): Promise<string> {
     let key: string;
     const keysInUse: string[] = (await this.getAll()).map(

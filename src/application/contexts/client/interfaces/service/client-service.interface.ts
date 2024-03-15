@@ -6,6 +6,6 @@ export interface IClientService {
   getOneById: (id: number) => Promise<IClient>;
   update: (id: any, args: Partial<IClient>) => Promise<IClient>;
   delete: (id: number) => Promise<IClient[]>;
-  generateKey: () => Promise<string>;
   getOneByKey: (key: string) => Promise<IClient>;
+  generateKey: () => Promise<string>;
 }

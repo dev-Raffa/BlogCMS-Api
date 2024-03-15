@@ -6,7 +6,7 @@ export interface IClient {
   name: string;
   domain: string;
   email: string;
-  apiKey?: string;
+  apiKey: string;
   users: IUser[];
   levels: ILevel[];
 }
