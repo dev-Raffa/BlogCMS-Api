@@ -22,7 +22,7 @@ class Client implements IClient {
   domain: string;
   levels: ILevel[];
   users: IUser[];
-  apiKey?: string;
+  apiKey: string;
 
   constructor(args: IClient) {
     this.id = args.id;
