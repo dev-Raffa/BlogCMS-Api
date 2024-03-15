@@ -32,8 +32,10 @@ export class BaseRepository<T extends IBaseEntity> implements IRepository<T> {
     return this.repository;
   }
 
-  async findOneBy(args: { id: number }) {
-    return this.repository.find((item) => item.id === args.id);
+  async findOneBy(args: { [K in keyof T]?: T[K] }) {
+    for (const key in args) {
+      return this.repository.find((item) => item[key] === args[key]);
+    }
   }
 
   async update(id: number, args: Partial<T>) {

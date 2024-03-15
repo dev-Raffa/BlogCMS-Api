@@ -8,10 +8,11 @@ export abstract class BaseService<T extends IBaseEntity>
 {
   constructor(
     @Inject('REPOSITORY')
-    private readonly repository: IRepository<T>
+    protected readonly repository: IRepository<T>
   ) {}
 
   private async verifyId(id: number) {
+    //@ts-expect-error Argument of type '{ id: number; }' is not assignable to parameter of type '{ [K in keyof T]?: T[K]; }'.
     return await this.repository.findOneBy({ id: id });
   }
 
@@ -24,7 +25,8 @@ export abstract class BaseService<T extends IBaseEntity>
     return await this.repository.find();
   }
 
-  async getOneById(id: any): Promise<T> {
+  async getOneById(id: number): Promise<T> {
+    //@ts-expect-error Argument of type '{ id: number; }' is not assignable to parameter of type '{ [K in keyof T]?: T[K]; }'.
     const result = await this.repository.findOneBy({ id: id });
 
     if (!result) {
@@ -41,7 +43,7 @@ export abstract class BaseService<T extends IBaseEntity>
     }
 
     await this.repository.update(id, args);
-
+    //@ts-expect-error Argument of type '{ id: number; }' is not assignable to parameter of type '{ [K in keyof T]?: T[K]; }'.
     return await this.repository.findOneBy({ id: +id });
   }
 
