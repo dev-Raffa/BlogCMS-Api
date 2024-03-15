@@ -10,7 +10,8 @@ export const DatabaseTableClientMock: IClient[] = [
     domain: 'test.com',
     email: 'client@test.com',
     levels: [],
-    users: []
+    users: [],
+    apiKey: 'a1c31e5d-f791-4f8a-bebf-5b20eff594a4'
   }
 ];
 
