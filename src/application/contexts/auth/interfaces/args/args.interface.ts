@@ -1,5 +1,5 @@
-import { IClient } from '../../client/interfaces/entity/client-entity.interface';
-import { IUser } from '../../user/interfaces/entity/user-entity.interface';
+import { IClient } from '../../../../../application/contexts/client/interfaces/entity/client-entity.interface';
+import { IUser } from '../../../../../application/contexts/user/interfaces/entity/user-entity.interface';
 
 export interface signinArgs {
   email: string;
@@ -7,6 +7,6 @@ export interface signinArgs {
 }
 
 export interface signupArgs {
-  clientArgs: IClient;
-  userArgs: IUser;
+  clientArgs: Pick<IClient, 'name' | 'domain' | 'email'>;
+  userArgs: Pick<IUser, 'name' | 'email' | 'password'>;
 }

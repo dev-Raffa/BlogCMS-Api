@@ -7,6 +7,6 @@ export interface IClient {
   domain: string;
   email: string;
   apiKey: string;
-  users: IUser[];
-  levels: ILevel[];
+  users?: IUser[];
+  levels?: ILevel[];
 }

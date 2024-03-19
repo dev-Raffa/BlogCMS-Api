@@ -46,7 +46,7 @@ describe('ClientService', () => {
     });
   });
 
-  describe('getOneKey', () => {
+  describe('getOneByKey', () => {
     it('should throw not found exception when key is not found', async () => {
       const key = 'b7f2a7fc-d07f-4e79-b8fe-57cf55a57119';
 

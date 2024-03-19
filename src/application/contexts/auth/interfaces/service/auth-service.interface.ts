@@ -1,7 +1,8 @@
 import { signinArgs, signupArgs } from '../args/args.interface';
+import { ISignupResponse } from '../responses/reponses-auth.interface';
 
-export interface AuthService {
+export interface IAuthService {
   signin: (args: signinArgs) => Promise<object>;
   signout: () => Promise<void>;
-  signup: (args: signupArgs) => Promise<object>;
+  signup: (args: signupArgs) => Promise<ISignupResponse>;
 }
