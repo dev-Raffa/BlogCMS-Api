@@ -1,13 +1,13 @@
-import { IRolesComments } from 'src/application/contexts/roles/comments/interfaces/entity/rolesComments-entity.interface';
-import { IRolesPosts } from 'src/application/contexts/roles/posts/interfaces/entity/rolesPosts-entity.interface';
-import { IRolesUsers } from 'src/application/contexts/roles/users/interfaces/entity/rolesUsers-entity.inteface';
+import { ICommentsPermisssions } from '../../../permissions/comments/interfaces/entity/commentsPerm-entity.interface';
+import { IPostsPermissions } from '../../../permissions/posts/interfaces/entity/postsPermissions-entity.interface';
+import { IUsersPermissions } from '../../../permissions/users/interfaces/entity/usersPermissions-entity.inteface';
 
 export interface IRole {
   id: number;
   title: string;
   allowed: {
-    users?: IRolesUsers;
-    posts?: IRolesPosts;
-    comments?: IRolesComments;
+    users?: IUsersPermissions;
+    posts?: IPostsPermissions;
+    comments?: ICommentsPermisssions;
   };
 }
