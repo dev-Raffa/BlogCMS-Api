@@ -1,6 +1,6 @@
 import { IBasePermissions } from '../../interface/base-permissions.interface';
 
-export class updateRolesBaseDTO
+export class updateBasePermissionsDTO
   implements Partial<Omit<IBasePermissions, 'id'>>
 {
   create?: boolean;
