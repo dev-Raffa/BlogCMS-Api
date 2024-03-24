@@ -1,7 +1,7 @@
 import { Validate } from '../../../../utils/decorators/Validate/validate.decorator';
 import { EmailValidator } from '../../../../utils/validators/email/email.validator';
 
-describe.skip('validate decorator', () => {
+describe('validate decorator', () => {
   class mockClass {
     id: number;
     name: string;

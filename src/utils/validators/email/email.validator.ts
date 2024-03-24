@@ -1,4 +1,4 @@
-import { IValidator } from 'src/utils/interfaces/validator/validator.interface';
+import { IValidator } from '../../../utils/interfaces/validator/validator.interface';
 import { enumTLD } from '../../../utils/enums/tld/tld.enum';
 import { EmailPattern } from './pattern/email.patern';
 
