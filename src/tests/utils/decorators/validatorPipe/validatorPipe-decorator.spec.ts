@@ -2,7 +2,7 @@ import { HttpException } from '@nestjs/common';
 import { isEmail } from '../../../../utils/decorators/isEmail/isEmail.decorator';
 import { ValidatorPiPe } from '../../../../utils/decorators/validatorPipe/validatorPipe.decorator';
 
-describe.skip('ValidatorPipe decorator', () => {
+describe('ValidatorPipe decorator', () => {
   class mockCreateDTO {
     name: string;
     @isEmail() email: string;
