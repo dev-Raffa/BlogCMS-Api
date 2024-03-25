@@ -1,3 +1,6 @@
-export interface IValidator {
-  validate: (arg: any) => boolean;
+export abstract class IValidator {
+  validate(value: string): boolean {
+    value;
+    return true;
+  }
 }
